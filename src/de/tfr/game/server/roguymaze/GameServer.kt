@@ -1,4 +1,4 @@
-package io.ktor.samples.chat
+package de.tfr.game.server.roguymaze
 
 import io.ktor.http.cio.websocket.CloseReason
 import io.ktor.http.cio.websocket.Frame

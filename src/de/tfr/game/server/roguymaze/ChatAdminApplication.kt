@@ -1,4 +1,4 @@
-package io.ktor.samples.chat
+package de.tfr.game.server.roguymaze
 
 import io.ktor.application.Application
 import io.ktor.application.ApplicationCallPipeline
@@ -6,11 +6,7 @@ import io.ktor.application.call
 import io.ktor.application.install
 import io.ktor.features.CallLogging
 import io.ktor.features.DefaultHeaders
-import io.ktor.http.cio.websocket.CloseReason
-import io.ktor.http.cio.websocket.Frame
-import io.ktor.http.cio.websocket.close
-import io.ktor.http.cio.websocket.pingPeriod
-import io.ktor.http.cio.websocket.readText
+import io.ktor.http.cio.websocket.*
 import io.ktor.http.content.defaultResource
 import io.ktor.http.content.resources
 import io.ktor.http.content.static
@@ -33,13 +29,13 @@ import java.time.Duration
  * an extension of the [Application] class, and thus can be accessed like a normal member `myapplication.main()`.
  */
 fun Application.main() {
-    ChatApplication().apply { main() }
+    ChatAdminApplication().apply { main() }
 }
 
 /**
  * In this case we have a class holding our application state so it is not global and can be tested easier.
  */
-class ChatApplication {
+class ChatAdminApplication {
     /**
      * This class handles the logic of a [GameServer].
      * With the standard handlers [GameServer.memberJoin] or [GameServer.memberLeft] and operations like
@@ -73,7 +69,11 @@ class ChatApplication {
         // This adds an interceptor that will create a specific session in each request if no session is available already.
         intercept(ApplicationCallPipeline.Features) {
             if (call.sessions.get<ChatSession>() == null) {
-                call.sessions.set(ChatSession(generateNonce()))
+                call.sessions.set(
+                    ChatSession(
+                        generateNonce()
+                    )
+                )
             }
         }
 

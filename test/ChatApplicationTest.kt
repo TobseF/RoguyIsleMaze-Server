@@ -1,14 +1,14 @@
+import de.tfr.game.server.roguymaze.ChatAdminApplication
+import de.tfr.game.server.roguymaze.main
 import io.ktor.application.Application
 import io.ktor.http.cio.websocket.Frame
 import io.ktor.http.cio.websocket.readText
-import io.ktor.samples.chat.ChatApplication
-import io.ktor.samples.chat.main
 import io.ktor.server.testing.withTestApplication
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 /**
- * Tests the [ChatApplication].
+ * Tests the [ChatAdminApplication].
  */
 class ChatApplicationTest {
     /**
