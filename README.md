@@ -1,6 +1,6 @@
-# Game Server
+# 📡 Game Server
 
-A Game Server for my [https://github.com/TobseF/MagicMaze-Island](MagicMaze-Island) game.
+A game server for the [MagicMaze-Island](https://github.com/TobseF/MagicMaze-Island) game.
 
 Based on  [Ktor](https://ktor.io) using websockets and sessions.
 
